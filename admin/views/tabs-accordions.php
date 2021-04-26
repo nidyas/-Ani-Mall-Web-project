@@ -277,22 +277,20 @@
             </section>
             <section class="main--content">
                 <div class="row gutter-20">
-                    <div class="col-lg-6">
+                    <div class="col-lg-10">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Tabs</h3>
+                                <h3 class="panel-title">Table Commentaires</h3>
                                 <div class="dropdown"> <button type="button" class="btn-link dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i> </button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-cogs"></i>Settings</a></li>
+                                            <form action=""method="GET">  <li><a href="#"><i class="fa fa-cogs"></i>Tri par ID</a></li></form>
                                         <li><a href="#"><i class="fa fa-times"></i>Remove Panel</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <form action="../controller/showcomment.php" method="GET">
-                            <div class="panel-content">
-                                <div class="panel-subtitle">
-                                    <h5 class="h5">Table Comments </h5>
-                                </div>
+                            
+                                
                                 </form>
                                 <div class="tab-content">
                                         <div class="tab-pane fade show active" id="tab01">
@@ -348,6 +346,80 @@
                     </div>
                 
             </section>
+            <section class="main--content">
+                <div class="row gutter-20">
+                    <div class="col-lg-10">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Tables Review</h3>
+                                <div class="dropdown"> <button type="button" class="btn-link dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-ellipsis-v"></i> </button>
+                                    <ul class="dropdown-menu">
+                                    <form action="../controller/trireview.php"method="GET"><li><a href=""><i class="fa fa-cogs"></i>TRI par rate</a></li></form>
+                                        <li><a href="#"><i class="fa fa-times"></i>Remove Panel</a></li>
+                                    </ul>
+                                    <li><a href="../fpdf17/pdf.php"><i class="fa fa-times"></i>PDF</a></li>
+
+                                </div>
+                            </div>
+                            <form action="../controller/showreview.php" method="GET">
+                            
+                                </form>
+                                <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="tab01">
+                                        <table border="5px" >
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Mail</th>
+                                            <th>content</th>
+                                            <th>rating</th>
+                                            <th></th>
+                                            <th></th>
+                                            <?php
+                                            include_once "../../connexion.php";
+                                
+                                            $db = config::getConnexion();
+                                            $sql = "select * from reviews";
+                                            try{
+                                                $list = $db->query($sql);
+                                            }catch(Exception $e){
+                                                echo "error";
+                                            }
+                                            foreach($list as $row){
+                                                echo "<tr>";
+                                                echo "<td>";
+                                                echo $row['id'];
+                                                echo "</td>";
+                                                echo "<td>";
+                                                echo $row['name'];
+                                                echo "</td>";
+                                                echo "<td>";
+                                                echo $row['email'];
+                                                echo "</td>";
+                                                echo "<td>";
+                                                echo $row['content'];
+                                                echo "</td>";
+                                                echo "<td>";
+                                                echo $row['rate'];
+                                                echo "</td>";
+                        
+                                                echo "<td>";
+                                                echo "<form action='../delete_review.php' method='get' >";
+                                                echo "<input name='id' type='hidden' value='".$row['id']."'>";
+                                                echo "<input type='submit' value='Delete'>";
+                                                echo "</form>";
+                                                echo "</td>";
+                                                echo "</tr>";
+                                            }
+                                            ?>
+                                            </table>
+                                            
+                                        </div>
+                                   
+
+                    </div>
+                
+            </section>
+            
             <footer class="main--footer main--footer-light">
                 <p>Copyright &copy; <a href="#">DAdmin</a>. All Rights Reserved.</p>
             </footer>
