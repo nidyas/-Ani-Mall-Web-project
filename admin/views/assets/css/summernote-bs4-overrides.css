@@ -35,3 +35,11 @@
 .note-editor.note-frame > .note-statusbar {
     border-color: #eee;
 }
+panel {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+  background: green;
+}

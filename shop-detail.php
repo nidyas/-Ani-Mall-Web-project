@@ -22,10 +22,8 @@
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
-
     <!-- Favicon and apple touch icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
@@ -88,7 +86,7 @@
                 </p>
               </form>
               <p class="text-center text-muted">Not registered yet?</p>
-              <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+              <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
             </div>
           </div>
         </div>
@@ -369,71 +367,58 @@
                   <li>Regular fit</li>
                   <li>The model (height 5'8 "and chest 33") is wearing a size S</li>
                 </ul>
-                <blockquote class="blockquote">
-                  <p class="mb-0"><em>Review:</em></p>
-                                    
-                  <div class="container">
-                    <div class="row">
-                 
-                <form action="add_rate.php" method="post">
-
-                    <div>
-                        <h3>Student Rating System</h3>
+                                    <div class="container">
+                        <div class="row">
+                    
+                    <form action="View/add_rate.php" method="post">
+                    
+                        <div>
+                            <h2>Liked our product ?feel Free to rate it! </h2>
+                        </div>
+                    
+                                    <div class="row">
+                                <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">Name <span class="required text-primary">*</span></label>
+                                    <input id="name" name="name" type="text" class="form-control"required>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="email">Email <span class="required text-primary">*</span></label>
+                                    <input id="email" name="email" type="text" class="form-control" required>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="comment">Review<span class="required text-primary">*</span></label>
+                                    <textarea id="comment" name="content" rows="4" class="form-control"required></textarea>
+                                </div>
+                                </div>
+                            </div>
+                    
+                            <div class="rateyo" id= "rating"
+                            data-rateyo-rating="4"
+                            data-rateyo-num-stars="5"
+                            data-rateyo-score="3">
+                            </div>
+                    
+                        <span class='result'>0</span>
+                        <input type="hidden" name="rating">
+                    
+                        </div>
+                    
+                        <div class="col-sm-12 text-right">
+                      <button type="submit" class="btn btn-template-outlined"name="add"><i class="fa fa-comment-o"></i> Send</button>
                     </div>
-                 
-                    <div>
-                         <label>Name</label>
-                        <input type="text" name="name">
+                    
+                    </form>
                     </div>
-                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">  
-                 
-                         <div class="rateyo" id= "rating"
-                         data-rateyo-rating="4"
-                         data-rateyo-num-stars="5"
-                         data-rateyo-score="3">
-                         </div>
-                 
-                    <span class='result'>0</span>
-                    <input type="hidden" name="rating">
-                 
                     </div>
-                 
-                    <div><input type="submit" name="add"> </div>
-                 
-                </form>
-                </div>
-                </div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.3.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-                 
-                <script>
-                 
-                 
-                    $(function () {
-                        $(".rateyo").rateYo().on("rateyo.change", function (e, data) {
-                            var rating = data.rating;
-                            $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
-                            $(this).parent().find('.result').text('rating :'+ rating);
-                            $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
-                        });
-                    });
-                 
-                </script>
-          
-                <div class="form-group">
-                  <label for="name">Name <span class="required text-primary">*</span></label>
-                  <input id="name" name="username" type="text" class="form-control"required>
-                </div>
-                  <div class="form-group">
-                    <label for="name">FeedBack <span class="required text-primary">*</span></label>
-                    <input id="name" name="content" type="text" class="form-control"required>
-                  </div>
-                  <div class="col-sm-12 text-right">
-                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-comment-o"></i> Submit</button>
-                  </div>
-                </blockquote>
-              </div>
               <div id="product-social" class="box social text-center mb-5 mt-5">
                 <h4 class="heading-light">Show it to your friends</h4>
                 <ul class="social list-inline">
@@ -720,5 +705,20 @@
     <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+    <script>
+ 
+ 
+    $(function () {
+        $(".rateyo").rateYo().on("rateyo.change", function (e, data) {
+            var rating = data.rating;
+            $(this).parent().find('.score').text('score :'+ $(this).attr('data-rateyo-score'));
+            $(this).parent().find('.result').text('rating :'+ rating);
+            $(this).parent().find('input[name=rating]').val(rating); //add rating value to input field
+        });
+    });
+ 
+</script>
   </body>
 </html>
